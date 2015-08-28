@@ -102,7 +102,7 @@ InventoryHistory.prototype.getHistory = function(options, callback) {
 				match = body.match(new RegExp("HistoryPageCreateItemHover\\( '" + $(items[j]).attr('id') + "', (\\d+), '(\\d+)', '(\\d+)', '(\\d+)' \\);"));
 				econItem = historyInventory[match[1]][match[2]][match[3]];
 				
-				if($(items[j]).name.toLowerCase() == 'span')
+				if(items[j].name.toLowerCase() == 'span')
 					trade.possible_fail = true;
 				
 				if($(items[j]).attr('id').indexOf('received') != -1) {
