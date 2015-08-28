@@ -85,6 +85,7 @@ InventoryHistory.prototype.getHistory = function(options, callback) {
 			trade.partnerVanityURL = null;
 			trade.itemsReceived = [];
 			trade.itemsGiven = [];
+			trade.possible_fail = false;
 			
 			profileLink = item.find('.tradehistory_event_description a').attr('href');
 			if(profileLink.indexOf('/profiles/') != -1) {
@@ -100,6 +101,9 @@ InventoryHistory.prototype.getHistory = function(options, callback) {
 			for(j = 0; j < items.length; j++) {
 				match = body.match(new RegExp("HistoryPageCreateItemHover\\( '" + $(items[j]).attr('id') + "', (\\d+), '(\\d+)', '(\\d+)', '(\\d+)' \\);"));
 				econItem = historyInventory[match[1]][match[2]][match[3]];
+				
+				if($(items[j]).name.toLowerCase() == 'span')
+					trade.possible_fail = true;
 				
 				if($(items[j]).attr('id').indexOf('received') != -1) {
 					trade.itemsReceived.push(econItem);
