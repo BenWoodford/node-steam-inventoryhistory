@@ -62,6 +62,7 @@ The callback will receive two parameters:
 		- `partnerName` - The current profile name of the person you traded with.
 		- `partnerSteamID` - The 64-bit Steam ID of the person you traded with. This will be `null` if they have a custom URL and you didn't specify `resolveVanityURLs`.
 		- `partnerVanityURL` - The custom profile URL of the person you traded with, if it exists. `null` if they don't have one.
+		- `possible_fail` - A boolean indicating whether the trade could possibly be a failed trade, this is indicated in the browser via the item not having a clickable link to view it in a user's inventory.
 		- `itemsReceived` - An array of items you received.
 		- `itemsGiven` - An array of items you lost.
 
